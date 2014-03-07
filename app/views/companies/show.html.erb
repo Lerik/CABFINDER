@@ -1,0 +1,46 @@
+<div id="right">
+   <h4>Company Information</h4>
+   <div id="notice">
+      <p>Name : <%= @company.name %></p>
+      <p>Address : <%= @company.address %></p>
+      <p>First Phone Number : <%= @company.number1 %></p>
+      <p>Secondary Phone Number : <%= @company.number2 %></p>
+   </div>
+
+</br>
+<h4><%= link_to "Add User", new_user_path(:company => @company.id) %></h4>
+</br>
+<% if @usercompanies.size!=0 %>
+   <table>
+      <tr>
+         <th>
+            Name of User
+         </th>
+         <th>
+            Role
+         </th>
+      </tr>
+      
+      <% @usercompanies.each do |uc| %>
+         <tr>
+            <td><%= User.find(uc.user_id).name %></td>
+            <% @userrole = UserRole.where('user_id = ?',uc.user_id) %>
+            <% if @userrole.size != 0 %>
+               <td><%= Role.find(@userrole.first.role_id).name %></td>
+            <% end %>
+         </tr>
+      <% end %>
+   </table>
+<% else %>
+   <div id="notice">
+      <p>This company doesn't have any user yet.</p>
+   </div>
+<% end %>
+</br>
+
+
+   <ul id="leftmenu">
+      <li><a ><%= link_to "Edit Company", edit_company_path(@company.id)%></a></li>
+      <li><a ><%= link_to "Delete Company", company_path(@company.id), method: :delete, data: { confirm: 'Are you sure?' } %></a></li>
+   </ul>
+</div>

@@ -1,0 +1,21 @@
+<div id="templatemo_content_area">
+  
+    <div class="templatemo_h_line"></div>
+            
+        <h3>SIGN IN</h3>
+            <div id="contact">
+            <div class="right">
+
+              <%= form_tag sessions_path do %>
+                    <strong><%= label_tag :email %></strong><br />
+                    <%= text_field_tag :email, params[:email], :class => "field" %>
+                    <strong><%= label_tag :password %></strong><br />
+                    <%= password_field_tag :password, "", :class => "field" %>
+                    <%= submit_tag %>
+
+                  <a href="#" class="submit">Submit</a>
+              <% end %>
+            </div>
+            </div>
+  <div class="cleaner"></div>
+</div>

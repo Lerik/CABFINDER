@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CabFinder Software</title>
+<meta name="keywords" content="free css template, Design Agency, XHTML, CSS" />
+<meta name="description" content="Design Agency - Free CSS Template, Download XHTML CSS Layout" />
+
+<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<%= csrf_meta_tags %>
+
+</head>
+<body>
+<div class="templatemo_container">
+    	<div id="templatemo_header">
+            <div class="cleaner"></div>
+			<div id="templatemo_menu">
+				<ul>
+					<% if logged_in? %>
+
+						<li class="home"><%= link_to "Companies", companies_path %></li>
+
+						<% if session[:user_id]==0.5 %>
+							<li class="service"><%= link_to "Roles", roles_path %></li>
+						<% end %>
+						<li class="service"><%= link_to "Sign Out", logout_path %></li>
+
+					<% else %>
+
+						<li class="home"><a>Home</a></li>
+	                    <li class="about"><a>How it works</a></li>
+	   				  	<li class="contact"><%= link_to "Sign In", login_path %></li>
+
+					<% end %>
+				</ul>
+			</div>
+        </div>
+
+        <%= yield %>
+</div>
+
+<div id="templatemo_bottom_section">
+	<div class="templatemo_container">
+	</div> 
+  </div> 
+<div id="templatemo_footer">
+    Copyright © 2014 CabFinder | Designed by W.P.J.R.
+</div>      
+</body>
+</html>
+

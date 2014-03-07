@@ -1,0 +1,57 @@
+<div id="contact">
+
+      <div class="row section-head">
+         <div class="col full">
+            <h2>New Company</h2>
+         </div>
+      </div>
+
+      <div class="row">
+
+         <div class="col g-7">
+            <%= form_for @company, url: {action: "create"}, :html => {:id => "contactForm"} do |f| %>
+
+					<fieldset>
+
+                  <div>
+                     <%= f.label :name %><br />
+                     <%= f.text_field :name %>
+                  </div>
+
+                  <div>
+                     <%= f.label :address %><br />
+                     <%= f.text_field :address %>
+                  </div>
+
+                  <div>
+                     <%= f.label :number1 %><br />
+                     <%= f.phone_field :number1 %>
+                  </div>
+
+                  <div>
+                     <%= f.label :number2 %><br />
+                     <%= f.phone_field :number2 %>
+                  </div>
+
+                  <div>
+                     <button class="submit">Create</button>
+                     <span id="image-loader">
+                        <img src="images/loader.gif" alt="" />
+                     </span>
+                  </div>
+
+					</fieldset>
+				<% end %><!-- Form End -->
+
+            <!-- contact-warning -->
+            <div id="message-warning"></div>
+            <!-- contact-success -->
+				<div id="message-success">
+               <i class="icon-ok"></i>Your message was sent, thank you!<br />
+				</div>
+
+         </div>
+
+      </div>
+
+   </div> 

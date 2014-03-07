@@ -1,0 +1,34 @@
+
+	<h2>CAB FINDER GENERAL</h2>
+
+	</br>
+	<h3><%= link_to ">>Add Role", new_role_path %></h3>
+	</br>
+	<% if @roles.size!=0 %>
+	   <table>
+	      <tr>
+	         <th>
+	            Name
+	         </th>
+	         <th>
+	            Number of users with this role
+	         </th>
+	         <th></th>
+	         <th></th>
+	      </tr>
+	      
+	      <% @roles.each do |role| %>
+	         <tr>
+	            <td><%= role.name %></td>
+	            <td><%= UserRole.where('role_id = ?',role.id).size %></td>	       
+	            <td><%= link_to "Edit", edit_role_path(role.id) %></td>
+	            <td><%= link_to "Delete", role_path(role.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	         </tr>
+	      <% end %>
+	   </table>
+	<% else %>
+	   <div id="notice">
+	      <p>There aren't users linked with this role.</p>
+	   </div>
+	<% end %>
+</br>

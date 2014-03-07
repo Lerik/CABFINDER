@@ -1,0 +1,48 @@
+<ul id="leftmenu">
+	<li><%= link_to "Generate a code", new_code_path %></li>
+</ul>
+
+<% if @codes.size == 0 %>
+
+	<h3>You haven't generated codes yet.</h3>
+
+<% else %>
+	
+
+	<table>
+		<tr>
+			<th>Serial</th>
+			<th>State</th>
+			<th></th>
+		</tr>
+			<% @codes.each do |c| %>
+
+				<tr>
+					<td><%= c.serial %></td>
+					<td>
+						<strong>
+							<% if c.finished == false %>
+								Codigo en uso.
+							<% else %>
+								Codigo sellado.
+							<% end %>
+						</strong>
+					</td>
+
+					<td>
+						<% if c.finished == false %>
+							<%= link_to "Create profiles", newCWC_path(c.id) %>
+						<% else %>
+							Codigo sellado.
+						<% end %>
+					</td>
+
+				</tr>
+
+			<% end %>
+		</div>
+
+	</table>
+	</br>
+
+<% end %>

@@ -1,0 +1,37 @@
+<div id="contact">
+
+      <div class="row section-head">
+         <div class="col full">
+            <h2>New User</h2>
+         </div>
+      </div>
+
+      <div class="row">
+
+         <div class="col g-7">
+
+            <!-- form -->
+
+            <% if @roles.size!=0 %>
+               <ul>
+                  <% @roles.each do |role| %>
+                     <li><%= link_to role.name, connectrole_path(@user.id,role.id) %></li>
+                  <% end %>
+               </ul>
+            <% else %>
+               <div id="notice">
+                  <p>There aren't users linked with this role.</p>
+               </div>
+            <% end %>
+            <!-- contact-warning -->
+            <div id="message-warning"></div>
+            <!-- contact-success -->
+				<div id="message-success">
+               <i class="icon-ok"></i>Your message was sent, thank you!<br />
+				</div>
+
+         </div>
+
+      </div>
+
+   </div> 

@@ -1,0 +1,54 @@
+<div id="templatemo_content_area">
+        
+        	<div id="templatemo_left">
+            
+            	<div class="templaetmo_section_1">
+                	<ul class="sub_menu">
+                    	<li><a href="#" class="current">New Company</a></li>          
+                        <li><a href="#">New Role</a></li>
+                        <li><a href="#">Search</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+        
+        	<div id="templatemo_right">
+            	<h1>List of Companies</h1>
+              <% if @companies.size!=0 %>
+               <table>
+                  <tr>
+                     <th>
+                        Name
+                     </th>
+                     <th>
+                        Address
+                     </th>
+                     <th>
+                        First Phone Number
+                     </th>
+                     <th>
+                        Secondary Phone Number
+                     </th>
+                     <th></th>
+                  </tr>
+                  
+                  <% @companies.each do |company| %>
+                     <tr>
+                        <td><%= company.name %></td>
+                        <td><%= company.address %></td>
+                        <td><%= company.number1 %></td>
+                        <td><%= company.number2 %></td>
+                        <td><%= link_to "Details", company_path(company.id) %></td>
+                     </tr>
+                  <% end %>
+               </table>
+            <% else %>
+              <div class="templatemo_section_2 left">
+                <img src="templatemo_img_1.jpg" alt="hat" />
+                  <h3>Information!</h3>
+                  <p>Your company doesn't have any user yet.</p>
+                </div>
+            <% end %>
+          </div>
+      </div>
+

@@ -1,0 +1,120 @@
+<div id="left">
+   <h2>Sign in</h2>
+	<div id="contact">
+
+      <div class="row">
+
+         <div class="col g-7">
+
+            <!-- form -->
+
+            <%= form_tag sessions_path, :html => {:id => "contactForm"} do%>
+
+				<fieldset>
+
+                  <div>
+                     <%= label_tag :email, 'Correo Electrónico' %><br />
+                     <%= text_field_tag :email, params[:email] %>
+                  </div>
+
+                  <div>
+                     <%= label_tag :password, 'Contraseña' %><br />
+                     <%= password_field_tag :password %>
+                  </div>
+
+                  <div>
+                     <button class="submit">Submit</button>
+                     <span id="image-loader">
+                        <img src="images/loader.gif" alt="" />
+                     </span>
+                  </div>
+
+					</fieldset>
+				<% end %><!-- Form End -->
+
+            <!-- contact-warning -->
+            <div id="message-warning"></div>
+            <!-- contact-success -->
+				<div id="message-success">
+               <i class="icon-ok"></i>Your message was sent, thank you!<br />
+				</div>
+
+         </div>
+
+      </div>
+
+   </div> 
+</div>
+
+<div id="right">
+	<div id="contact">
+
+      <div class="row section-head">
+         <div class="col full">
+            <h2>Sign Up</h2>
+         </div>
+      </div>
+
+      <div class="row">
+
+         <div class="col g-7">
+
+            <!-- form -->
+
+            <%= form_for @user, :html => {:id => "contactForm"} do |f| %>
+               <% if @user.errors.any? %>
+                <div class="error_messages">
+                  <h2>Form is invalid!</h2>
+                  <ul>
+                    <% for message in @user.errors.full_messages %>
+                      <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
+
+					<fieldset>
+
+                  <div>
+                     <%= f.label :name, 'Name' %><br />
+                     <%= f.text_field :name %>
+                  </div>
+
+                  <div>
+                     <%= f.label :email, 'Email' %><br />
+                     <%= f.text_field :email %>
+                  </div>
+
+                  <div>
+                     <%= f.label :password, 'Password' %><br />
+                     <%= f.password_field :password %>
+                  </div>
+
+                  <div>
+                     <%= f.label :password_confirmation, 'Confirm Password' %><br />
+                     <%= f.password_field :password_confirmation %>
+                  </div>
+
+                  <div>
+                     <button class="submit">Sign Up</button>
+                     <span id="image-loader">
+                        <img src="images/loader.gif" alt="" />
+                     </span>
+                  </div>
+
+					</fieldset>
+				<% end %><!-- Form End -->
+
+            <!-- contact-warning -->
+            <div id="message-warning"></div>
+            <!-- contact-success -->
+				<div id="message-success">
+               <i class="icon-ok"></i>Your message was sent, thank you!<br />
+				</div>
+
+         </div>
+
+      </div>
+
+   </div> 
+</div>
